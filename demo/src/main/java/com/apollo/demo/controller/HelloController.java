@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -22,6 +24,9 @@ public class HelloController {
     @Value( "${server.port}" )
     String port;
 
+    @Value( "${baidu.url}" )
+    String url;
+
     /**
      * 输出姓名和端口
      * @param name
@@ -35,6 +40,17 @@ public class HelloController {
         logger.warn( "warn log..." );
 
         return "hi " + name + " ,i am from port:" + port;
+    }
+
+
+    @RequestMapping("hi2")
+    public String hi2() {
+
+        logger.debug( "debug log..." );
+        logger.info( "info log..." );
+        logger.warn( "warn log..." );
+
+        return url;
     }
 
 }
