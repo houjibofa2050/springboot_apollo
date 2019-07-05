@@ -22,6 +22,11 @@ public class HelloController {
     @Value( "${server.port}" )
     String port;
 
+    /**
+     * 输出姓名和端口
+     * @param name
+     * @return
+     */
     @GetMapping("hi")
     public String hi(String name) {
 
